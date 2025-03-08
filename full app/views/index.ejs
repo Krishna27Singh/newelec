@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        .container {
+            display: flex;
+            gap: 300px;
+            flex-wrap: wrap;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, black, #0f52ba);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #767bff;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #676be1;
+        }
+
+        .message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        #canvas {
+            height: 50vmin;
+            width: 50vmin;
+            margin-top: 20px;
+        }
+
+        .new-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .new-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box1 h1 {
+            font-size: 3.5vmin;
+            margin: 0;
+        }
+
+        .box2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: 1058px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box1 h1 {
+                font-size: 5vw; /* Adjust font size for smaller screens */
+            }
+
+            #canvas {
+                height: 40vmin;
+                width: 40vmin; /* Smaller size for the canvas on small screens */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .box1 h1 {
+                font-size: 6vw; /* Further adjust font size for very small screens */
+            }
+
+            form {
+                width: 90%; /* Make forms fit smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="new-box">
+            <div class="box1">
+                <h1 style="color: white;">Welcome to MoodBloom</h1>
+                <h2 style="color: white;">Your journey to mental awareness starts here !</h2>
+            </div>
+            <div class="new-container">
+                <canvas id="canvas" width="700px" height="700px"></canvas>
+            </div>
+        </div>
+        <div class="box2">
+            <h1 style="color: white;">Signup / Login</h1>
+            <div class="message"><%= message || "" %></div>
+            <form method="POST" action="/signup">
+                <h3>Sign Up</h3>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="number" name="age" placeholder="Age" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            
+            <form method="POST" action="/login">
+                <h3>Login</h3>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <a href="http://localhost:3000"><button class="google" style="padding: 13px 96px;">Login using Google</button></a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@rive-app/canvas"></script>
+    <script>
+        const r = new rive.Rive({
+            src: "/emoji.riv",
+            canvas: document.getElementById("canvas"),
+            autoplay: true,
+            onLoad: () => {
+                r.resizeDrawingSurfaceToCanvas();
+            },
+        });
+    </script>
+</body>
+</html>
