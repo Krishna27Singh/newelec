@@ -5,12 +5,15 @@ require('dotenv').config();
 
 passport.use(new GoogleStrategy(
   {
-    clientID: process.env.CLIENT_ID, 
-    clientSecret: process.env.CLIENT_SECRET, 
+    clientID: process.env.clientID, 
+    clientSecret: process.env.clientSecret, 
     callbackURL: 'http://localhost:5001/auth/google/callback', 
     passReqToCallback: true, 
   },
   (request, accessToken, refreshToken, profile, done) => {
+//     console.log("CLIENT_ID:", process.env.CLIENT_ID);
+// console.log("CLIENT_SECRET:", process.env.CLIENT_SECRET);
+
     return done(null, profile);
   }
 ));

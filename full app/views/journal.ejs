@@ -4,66 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Journal App</title>
-    <link rel="stylesheet" href="/style.css">
     <style>
+        /* Global Styles */
         body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 0;
-    line-height: 1.6;
-}
+            font-family: 'Comic Sans MS', cursive;
+            margin: 20px;
+            padding: 0;
+            line-height: 1.6;
+            background: linear-gradient(45deg, #e4f0fc, #e3f2fd);
 
-h1 {
-    text-align: center;
-}
+        }
 
-form {
-    max-width: 100vw;
-    /* margin: 20px auto; */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #f9f9f9;
-}
+        h1 {
+            text-align: center;
+            color: #0097A7; /* Teal-like color */
+            animation: fadeIn 2s;
+        }
 
-form input, form textarea, form button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-form button {
-    background: #5cb85c;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
+        /* Form Styles */
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            animation: slideIn 1s;
+        }
 
-form button:hover {
-    background: #4cae4c;
-}
+        @keyframes slideIn {
+            from { transform: translateY(-100px); }
+            to { transform: translateY(0); }
+        }
 
-.entries {
-    max-width: 100vw;
-    /* margin: 20px auto; */
-    background-color: black ;
-    color: white;
-}
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-.entry {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-}
+        form button {
+            background: #0097A7; /* Teal-like color */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.previous{
-    background-color: red;
-    color: white;
-    margin: 40px 0px;
-}
+        form button:hover {
+            background: #007A7A; /* Darker teal on hover */
+        }
 
+        /* Entries Styles */
+        .entries {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .entry {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            animation: fadeIn 1s;
+        }
+
+        .previous {
+            background-color: #0097A7; /* Teal-like color */
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .entry h2 {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        .entry small {
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -89,4 +130,3 @@ form button:hover {
     </div>
 </body>
 </html>
-

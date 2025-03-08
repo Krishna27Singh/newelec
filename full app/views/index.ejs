@@ -1,170 +1,251 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login / Signup</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-        .container {
-            display: flex;
-            gap: 300px;
-            flex-wrap: wrap;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login / Signup</title>
+<style>
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-        body {
-            font-family: Arial, sans-serif;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, black, #0f52ba);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+/* Color Palette (Teal-Like Theme) */
+:root {
+--primary-color: #0097A7; /* Teal Main Color */
+--secondary-color: #007A7A; /* Darker Teal for Accent */
+--light-color: #f0f8ff; /* Very Light Blue */
+--text-color: #333; /* Dark Grey for Text */
+--white-color: #fff; /* White */
+--box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box Shadow */
+}
 
-        form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            margin: 10px;
-        }
+/* General Styles */
+body {
+font-family: 'Roboto', sans-serif;
+background: linear-gradient(to right, #000000, var(--primary-color));
+color: var(--text-color);
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+}
 
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+.container {
+display: flex;
+gap: 30px;
+flex-wrap: wrap;
+max-width: 1200px;
+padding: 20px;
+align-items: stretch;
+justify-content: center;
+}
 
-        button {
-            width: 100%;
-            padding: 10px;
-            background: #767bff;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+/* Box Styles */
+.new-box {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+flex: 1;
+min-width: 300px;
+padding: 20px;
+background-color: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+text-align: center;
+box-shadow: var(--box-shadow);
+}
 
-        button:hover {
-            background: #676be1;
-        }
+.box1 h1, .box2 h1 {
+color: var(--white-color);
+margin: 0 0 20px;
+}
 
-        .message {
-            color: red;
-            font-size: 14px;
-            text-align: center;
-        }
+.new-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
 
-        #canvas {
-            height: 50vmin;
-            width: 50vmin;
-            margin-top: 20px;
-        }
+/* Canvas Styles */
+#canvas {
+height: 40vmin;
+width: 40vmin;
+margin-top: 20px;
+border-radius: 50%;
+}
 
-        .new-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-        }
+/* Form Styles */
+form {
+background: rgba(255, 255, 255, 0.8);
+padding: 30px;
+border-radius: 12px;
+box-shadow: var(--box-shadow);
+width: 350px;
+margin: 20px;
+backdrop-filter: blur(5px);
+}
 
-        .new-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+form h3 {
+color: var(--primary-color);
+text-align: center;
+margin-bottom: 20px;
+font-weight: 500;
+}
 
-        .box1 h1 {
-            font-size: 3.5vmin;
-            margin: 0;
-        }
+form input {
+width: 100%;
+padding: 12px;
+margin: 12px 0;
+border-radius: 8px;
+border: 1px solid #ddd;
+font-size: 16px;
+transition: border-color 0.3s ease;
+}
 
-        .box2 {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+form input:focus {
+border-color: var(--primary-color);
+outline: none;
+}
 
-        @media (max-width: 1058px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
+form button {
+width: 100%;
+padding: 14px;
+background: var(--primary-color);
+border: none;
+color: var(--white-color);
+border-radius: 8px;
+font-size: 18px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
 
-            .box1 h1 {
-                font-size: 5vw; /* Adjust font size for smaller screens */
-            }
+form button:hover {
+background: var(--secondary-color);
+}
 
-            #canvas {
-                height: 40vmin;
-                width: 40vmin; /* Smaller size for the canvas on small screens */
-            }
-        }
+/* Message Styles */
+.message {
+color: #ff4d4d;
+font-size: 16px;
+text-align: center;
+margin-bottom: 15px;
+}
 
-        @media (max-width: 600px) {
-            .box1 h1 {
-                font-size: 6vw; /* Further adjust font size for very small screens */
-            }
+/* Google Button Styles */
+.google {
+background-color: #4285F4;
+color: var(--white-color);
+padding: 14px 24px;
+border-radius: 8px;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+transition: background-color 0.3s ease;
+}
 
-            form {
-                width: 90%; /* Make forms fit smaller screens */
-            }
-        }
-    </style>
+.google:hover {
+background-color: #357AE8;
+}
+
+/* Responsive Layout */
+@media (max-width: 1058px) {
+.container {
+flex-direction: column;
+align-items: center;
+}
+
+#canvas {
+height: 50vmin;
+width: 50vmin;
+}
+}
+
+@media (max-width: 600px) {
+form {
+width: 90%;
+}
+}
+
+/* Particle Animation Styles */
+#particles-js {
+position: fixed;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+z-index: -1;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-    <div class="container">
-        <div class="new-box">
-            <div class="box1">
-                <h1 style="color: white;">Welcome to MoodBloom</h1>
-                <h2 style="color: white;">Your journey to mental awareness starts here !</h2>
-            </div>
-            <div class="new-container">
-                <canvas id="canvas" width="700px" height="700px"></canvas>
-            </div>
-        </div>
-        <div class="box2">
-            <h1 style="color: white;">Signup / Login</h1>
-            <div class="message"><%= message || "" %></div>
-            <form method="POST" action="/signup">
-                <h3>Sign Up</h3>
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="number" name="age" placeholder="Age" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Sign Up</button>
-            </form>
-            
-            <form method="POST" action="/login">
-                <h3>Login</h3>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-            <a href="http://localhost:3000"><button class="google" style="padding: 13px 96px;">Login using Google</button></a>
-        </div>
-    </div>
+<!-- Particle Animation Background -->
+<div id="particles-js"></div>
 
-    <script src="https://unpkg.com/@rive-app/canvas"></script>
-    <script>
-        const r = new rive.Rive({
-            src: "/emoji.riv",
-            canvas: document.getElementById("canvas"),
-            autoplay: true,
-            onLoad: () => {
-                r.resizeDrawingSurfaceToCanvas();
-            },
-        });
-    </script>
+<div class="container">
+<!-- Left Box (Welcome and Animation) -->
+<div class="new-box">
+<div class="box1">
+<h1 class="animate__animated animate__fadeIn">Welcome to MoodBloom</h1>
+<h2 style="color: var(--white-color);">Your journey to mental awareness starts here!</h2>
+</div>
+<div class="new-container">
+<canvas id="canvas" width="700px" height="700px"></canvas>
+</div>
+</div>
+
+<!-- Right Box (Login and Signup) -->
+<div class="box2">
+<h1 class="animate__animated animate__fadeIn">Signup / Login</h1>
+<div class="message"><%= message || "" %></div>
+
+<!-- Signup Form -->
+<form method="POST" action="/signup" class="animate__animated animate__slideInLeft">
+<h3>Sign Up</h3>
+<input type="text" name="name" placeholder="Name" required>
+<input type="number" name="age" placeholder="Age" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Password" required>
+<button type="submit">Sign Up</button>
+</form>
+
+<!-- Login Form -->
+<form method="POST" action="/login" class="animate__animated animate__slideInRight">
+<h3>Login</h3>
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Password" required>
+<button type="submit">Login</button>
+</form>
+
+<!-- Google Login Button -->
+<a href="http://localhost:3000" class="google animate__animated animate__fadeInUp">
+Login using Google
+</a>
+</div>
+</div>
+
+<!-- Rive Animation Script -->
+<script src="https://unpkg.com/@rive-app/canvas"></script>
+<script>
+const r = new rive.Rive({
+src: "/emoji.riv",
+canvas: document.getElementById("canvas"),
+autoplay: true,
+onLoad: () => {
+r.resizeDrawingSurfaceToCanvas();
+},
+});
+</script>
+
+<!-- Particles.js Script -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS.load('particles-js', 'particles.json', function() {
+console.log('particles.json loaded...');
+});
+</script>
 </body>
 </html>

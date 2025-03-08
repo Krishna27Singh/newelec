@@ -4,9 +4,7 @@ import Home from "./pages/Home";
 import Games from "./pages/Games";
 import Breathing from "./pages/Breathing";
 import Playgames from "./pages/Playgames";
-import Playmusic from "./pages/Playmusic";
-// import AnonymousChat from "./pages/AnonymousChat";
-// import Posts from "./pages/Posts";
+
 import "./App.css"; // Ensure this is correctly linked
 
 function App() {
@@ -63,7 +61,7 @@ function App() {
           <Route path="/tools" element={<Games />} />
           <Route path="/tools/breathing" element={<Breathing />} />
           <Route path="/tools/playgames" element={<Playgames />} />
-          <Route path="/tools/playmusic" element={<Playmusic />} />
+          {/* <Route path="/tools/playmusic" element={<Playmusic />} /> */}
   
 
           {/* ✅ New Routes */}

@@ -22,18 +22,12 @@ export default function Games() {
     },
     { 
       name: "Play Games", 
-      externalLink: "https://67cbe6faf7d773dd3846f5b7--deluxe-fox-eff287.netlify.app/", 
+      externalLink: "https://67cc906d5e0d2d9a79c652d7--regal-douhua-d16c0a.netlify.app/", 
       emoji: "🎮", 
       bgColor: "bg-green-50", 
       textColor: "text-green-600" 
     },
-    { 
-      name: "Play Music", 
-      route: "/tools/playmusic", 
-      emoji: "🎵", 
-      bgColor: "bg-purple-50", 
-      textColor: "text-purple-600" 
-    },
+    
   ];
 
   return (

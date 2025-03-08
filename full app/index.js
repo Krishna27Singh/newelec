@@ -77,7 +77,7 @@ app.post("/login", async (req, res) => {
 
         const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: "1h" });
 
-        res.redirect("http://localhost:5001");
+        res.redirect("http://localhost:3000");
 
     } catch (err) {
         res.render("index", { message: "Error occurred during login. Please try again." });
